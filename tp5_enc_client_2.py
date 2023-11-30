@@ -1,11 +1,11 @@
 import socket
 
 
-def binaire(msg):
+def binaire(msg: int) -> bytes:
     return msg.to_bytes((msg.bit_length() + 7) // 8, byteorder='big')
 
 
-def unbinaire(msg):
+def unbinaire(msg: bytes) -> int:
     return int.from_bytes(msg, byteorder='big')
 
 
