@@ -16,7 +16,7 @@ def send(lst, signe):
     return header + header_int + binaire(lst[0]) + signe.encode() + binaire(lst[1]) + seq_fin
 
 
-def receive(sckt):
+def receive(skt):
     data = skt.recv(2)
     if data == b"":
         return
