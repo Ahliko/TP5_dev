@@ -55,12 +55,13 @@ def receive():
         return b"".join(chunks)
 
 
-while True:
+def client_connection():
     try:
         # On reçoit le calcul du client
         message_received = receive()
         if message_received is None:
-            break
+            conn.close()
+            return
         first_header = int.from_bytes(message_received[0:2], byteorder='big')
         first_int = unbinaire(message_received[2: 2 + first_header])
         old = 2 + first_header
@@ -72,6 +73,14 @@ while True:
 
     except socket.error:
         print("Error Occured.")
-        break
+    finally:
+        conn.close()
 
-conn.close()
+
+while True:
+    try:
+        client_connection()
+    except KeyboardInterrupt:
+        print("Server stopped by user.")
+        break
+s.close()

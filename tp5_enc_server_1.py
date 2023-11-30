@@ -5,14 +5,16 @@ s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind(('127.0.0.1', 9999))
 
 s.listen(1)
-conn, addr = s.accept()
 
-while True:
+
+def client_connection():
+    conn, addr = s.accept()
     try:
         # On reçoit le calcul du client
         data = conn.recv(4)
         if data == b"":
-            break
+            conn.close()
+            return
         msg_len = int.from_bytes(data[0:4], byteorder='big')
 
         print(f"Lecture des {msg_len} prochains octets")
@@ -24,7 +26,7 @@ while True:
         while bytes_received < msg_len:
             # Si on reçoit + que la taille annoncée, on lit 1024 par 1024 octets
             chunk = conn.recv(min(msg_len - bytes_received,
-                                    1024))
+                                  1024))
             if not chunk:
                 raise RuntimeError('Invalid chunk received bro')
 
@@ -45,6 +47,14 @@ while True:
 
     except socket.error:
         print("Error Occured.")
-        break
+    finally:
+        conn.close()
 
-conn.close()
+
+while True:
+    try:
+        client_connection()
+    except KeyboardInterrupt:
+        print("Server stopped by user.")
+        break
+s.close()
