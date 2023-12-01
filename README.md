@@ -100,6 +100,7 @@ python tp5_web_serv_3.py
 
 [tp5_web_serv_4.py](tp5_web_serv_4.py)
 ```bash
+sudo mkdir /var/log/web-server && sudo chown $USER /var/log/web-server
 python tp5_web_serv_4.py
 ```
 
@@ -112,6 +113,7 @@ python tp5_web_serv_4.py
 [tp5_web_client_5.py](tp5_web_client_5.py)
 
 ```bash
+sudo mkdir /var/log/web-server && sudo chown $USER /var/log/web-server
 python tp5_web_serv_5.py
 python tp5_web_client_5.py
 ```
