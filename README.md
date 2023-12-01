@@ -105,14 +105,13 @@ python tp5_web_serv_4.py
 
 ## 5. File download
 
-Euuuuuh. On a pas créé accidentellement un downloader de fichier là ? En fait le protocole HTTP c'est juste ça à la base hein : une langue standard qui permet à un client de télécharger des fichiers.
-
-Ca fait quoi si au lieu de demander un `.html` on demande un `.mp3` ou `.jpg` ? Bah pareil : tu le télécharges.
 
 🌞 **`tp5_web_serv_5.py`**
 
-- doit permettre de télécharger des plus volumineux que 3 lignes de HTML
-- comme des images par exemple (JPG)
-- il sera intéressant de réutiliser la mécanique de chunks, de headers, etc de la section II. précédente avec la calculatrice !
+[tp5_web_serv_5.py](tp5_web_serv_5.py)
+[tp5_web_client_5.py](tp5_web_client_5.py)
 
-> Un gros fichier de ce genre, il sera forcément fragmenté en plusieurs bouts sur le réseau. Il est donc essentiel de gérer le transfert morceau par morceau.
+```bash
+python tp5_web_serv_5.py
+python tp5_web_client_5.py
+```
