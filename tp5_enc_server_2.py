@@ -21,8 +21,8 @@ def send(result):
     return header + binaire(result) + seq_fin
 
 
-def receive():
-    conn, addr = s.accept()
+def receive(conn):
+
     data = conn.recv(2)
     if data == b"":
         return
@@ -57,8 +57,9 @@ def receive():
 
 def client_connection():
     try:
+        conn, addr = s.accept()
         # On reçoit le calcul du client
-        message_received = receive()
+        message_received = receive(conn)
         if message_received is None:
             conn.close()
             return
