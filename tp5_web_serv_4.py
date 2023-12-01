@@ -10,7 +10,7 @@ if not os.path.isfile("/var/log/web-server/bs_server.log"):
 
 logger = colorlog.getLogger()
 logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler('/var/log/web-server/bs_server.log', 'w', 'utf-8')
+file_handler = logging.FileHandler('/var/log/web-server/web_server.log', 'w', 'utf-8')
 file_handler.setLevel(logging.INFO)
 stream_handler = colorlog.StreamHandler()
 stream_handler.setLevel(logging.INFO)
