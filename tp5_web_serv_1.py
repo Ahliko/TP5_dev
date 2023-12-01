@@ -5,10 +5,10 @@ s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind(('127.0.0.1', 9999))
 
 s.listen(1)
-conn, addr = s.accept()
 
 
 def client_connection():
+    conn, addr = s.accept()
     try:
         # On reçoit le calcul du client
         data = conn.recv(1024)

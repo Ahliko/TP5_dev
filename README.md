@@ -98,10 +98,10 @@ python tp5_web_serv_3.py
 
 🌞 **`tp5_web_serv_4.py`**
 
-- gestion de logs !
-- quand un client télécharge un fichier, on log la requête
-- au format standard
-- pas de couleurs ni rien (sauf si tu veux t'amuser)  
+[tp5_web_serv_4.py](tp5_web_serv_4.py)
+```bash
+python tp5_web_serv_4.py
+```
 
 ## 5. File download
 
