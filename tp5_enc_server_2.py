@@ -56,8 +56,8 @@ def receive(conn):
 
 
 def client_connection():
+    conn, addr = s.accept()
     try:
-        conn, addr = s.accept()
         # On reçoit le calcul du client
         message_received = receive(conn)
         if message_received is None:
