@@ -43,7 +43,7 @@ def receive(skt):
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(('127.0.0.1', 9999))
-file = "image.jpgp"
+file = "image.jpg"
 s.send(f"GET /{file}".encode())
 
 s_data = receive(s)
